@@ -62,13 +62,13 @@ pub struct CreateStablecoin<'info> {
         mint::decimals = STABLECOIN_DECIMALS,
         mint::authority = stablecoin_state,
     )]
-    pub mint: Account<'info, Mint>,
+    pub mint: Box<Account<'info, Mint>>,
 
     /// Yield mint
     #[account(
         address = USDC_MINT @ StablecoinError::InvalidUSDCMint
     )]
-    pub yield_mint: Account<'info, Mint>,
+    pub yield_mint: Box<Account<'info, Mint>>,
 
     /// Collateral vault for stablebonds
     #[account(
@@ -77,10 +77,10 @@ pub struct CreateStablecoin<'info> {
         associated_token::mint = bond_mint,
         associated_token::authority = stablecoin_state,
     )]
-    pub collateral_vault: Account<'info, TokenAccount>,
+    pub collateral_vault: Box<Account<'info, TokenAccount>>,
 
     /// The stablebond mint we're using as collateral
-    pub bond_mint: Account<'info, Mint>,
+    pub bond_mint: Box<Account<'info, Mint>>,
 
     /// CHECK: Validated in is_bond_supported using Etherfuse PDA
     pub bond_info: AccountInfo<'info>,

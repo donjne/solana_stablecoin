@@ -60,7 +60,7 @@ pub struct BurnStablecoin<'info> {
         mut,
         address = stablecoin_state.mint
     )]
-    pub stablecoin_mint: Account<'info, Mint>,
+    pub stablecoin_mint: Box<Account<'info, Mint>>,
 
     /// Collateral vault
     #[account(

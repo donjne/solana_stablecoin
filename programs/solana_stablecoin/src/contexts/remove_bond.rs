@@ -19,7 +19,7 @@ pub struct RemoveBond<'info> {
     )]
     pub factory_state: Box<Account<'info, FactoryState>>,
 
-    pub bond_mint: Account<'info, Mint>,
+    pub bond_mint: Box<Account<'info, Mint>>,
 
     pub system_program: Program<'info, System>,
 }

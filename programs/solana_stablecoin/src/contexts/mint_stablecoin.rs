@@ -63,21 +63,21 @@ pub struct MintStablecoin<'info> {
         mut,
         address = stablecoin_state.mint
     )]
-    pub stablecoin_mint: Account<'info, Mint>,
+    pub stablecoin_mint: Box<Account<'info, Mint>>,
 
     /// Collateral vault
     #[account(
         mut,
         address = stablecoin_state.collateral_vault
     )]
-    pub collateral_vault: Account<'info, TokenAccount>,
+    pub collateral_vault: Box<Account<'info, TokenAccount>>,
 
     #[account(
         mut,
         seeds = [SOL_FEE_VAULT_SEED],
         bump = sol_fee_vault.bump,
     )]
-    pub sol_fee_vault: Account<'info, SolFeeVault>,
+    pub sol_fee_vault: Box<Account<'info, SolFeeVault>>,
 
     /// CHECK: Verified in logic
     pub kyc_info: AccountInfo<'info>,

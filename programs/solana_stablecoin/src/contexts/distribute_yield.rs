@@ -48,7 +48,7 @@ pub struct DistributeYield<'info> {
 
     /// The bond mint 
     #[account(address = stablecoin_state.bond_mint)]
-    pub bond_mint: Account<'info, Mint>,
+    pub bond_mint: Box<Account<'info, Mint>>,
 
     /// Protocol fee vault
     #[account(
@@ -61,7 +61,7 @@ pub struct DistributeYield<'info> {
     #[account(
         address = USDC_MINT @ StablecoinError::InvalidUSDCMint
     )]
-    pub yield_mint: Account<'info, Mint>,
+    pub yield_mint: Box<Account<'info, Mint>>,
 
     /// User's yield token account
     #[account(

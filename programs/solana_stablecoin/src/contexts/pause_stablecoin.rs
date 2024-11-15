@@ -22,7 +22,7 @@ pub struct PauseStablecoin<'info> {
         mut,
         constraint = stablecoin_state.creator == admin.key() @ StablecoinError::Unauthorized,
     )]
-    pub stablecoin_state: Account<'info, StablecoinState>,
+    pub stablecoin_state: Box<Account<'info, StablecoinState>>,
 
     pub system_program: Program<'info, System>,
 }

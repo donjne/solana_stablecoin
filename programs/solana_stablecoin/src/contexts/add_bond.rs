@@ -24,7 +24,7 @@ pub struct AddSupportedBond<'info> {
     pub factory_state: Box<Account<'info, FactoryState>>,
 
     // The bond mint to verify
-    pub bond_mint: Account<'info, Mint>,
+    pub bond_mint: Box<Account<'info, Mint>>,
 
     // The Etherfuse bond account
     /// CHECK: Verified in instruction
