@@ -1,4 +1,4 @@
-# Stable.fun - Complete Instruction Specifications
+# Stable.fun
 
 ```bash
 src/
